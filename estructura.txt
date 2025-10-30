@@ -1,0 +1,9 @@
+ft9201-libfprint-driver/
+├── README.md
+├── drivers/
+│   ├── ft9201.c
+│   └── ft9201.h
+├── meson.build
+├── patches/
+│   └── add-ft9201-driver.patch
+└── install.sh

@@ -1,0 +1,75 @@
+diff --git a/meson.build b/meson.build
+index abc123..def456 100644
+--- a/meson.build
++++ b/meson.build
+@@ -45,6 +45,7 @@ drivers = [
+   'elan',
+   'elanspi',
+   'etes603',
++  'ft9201',
+   'goodixmoc',
+   'nb1010',
+   'upektc',
+diff --git a/libfprint/meson.build b/libfprint/meson.build
+index ghi789..jkl012 100644
+--- a/libfprint/meson.build
++++ b/libfprint/meson.build
+@@ -101,6 +101,10 @@ if drivers.contains('etes603')
+   drivers_sources += files(['drivers/etes603.c'])
+ endif
+ 
++if drivers.contains('ft9201')
++  drivers_sources += files(['drivers/ft9201.c'])
++endif
++
+ if drivers.contains('goodixmoc')
+   drivers_sources += files(['drivers/goodixmoc.c'])
+ endif
+diff --git a/libfprint/drivers/ft9201.c b/libfprint/drivers/ft9201.c
+new file mode 100644
+index 0000000..1234567
+--- /dev/null
++++ b/libfprint/drivers/ft9201.c
+@@ -0,0 +1,42 @@
++/*
++ * Driver para FocalTech FT9201 Fingerprint Sensor
++ * Dispositivo: 2808:9338
++ */
++
++#include "fpi-device.h"
++#include "fpi-ssm.h"
++#include "fpi-usb-transfer.h"
++
++struct _FpDeviceFt9201 {
++    FpDevice parent;
++};
++
++G_DEFINE_TYPE(FpDeviceFt9201, fpi_device_ft9201, FP_TYPE_DEVICE)
++
++static const FpIdEntry id_table[] = {
++    { .vid = 0x2808, .pid = 0x9338, .driver_data = 0 },
++    { .vid = 0, .pid = 0, .driver_data = 0 },
++};
++
++static void fpi_device_ft9201_init(FpDeviceFt9201 *self)
++{
++    /* Inicialización del dispositivo */
++}
++
++static void fpi_device_ft9201_class_init(FpDeviceFt9201Class *klass)
++{
++    FpDeviceClass *device_class = FP_DEVICE_CLASS(klass);
++
++    device_class->id = "ft9201";
++    device_class->full_name = "FocalTech FT9201 Fingerprint Sensor";
++    device_class->type = FP_DEVICE_TYPE_USB;
++    device_class->id_table = id_table;
++    device_class->scan_type = FP_SCAN_TYPE_PRESS;
++    device_class->nr_enroll_stages = 10;
++    
++    /* Funciones a implementar */
++    // device_class->open = ft9201_open;
++    // device_class->close = ft9201_close;
++    // device_class->enroll = ft9201_enroll;
++    // device_class->identify = ft9201_identify;
++}

@@ -1,0 +1,22 @@
+project('ft9201-libfprint-driver', 'c')
+
+# Dependencias
+libfprint_dep = dependency('libfprint-2', required: true)
+
+# Fuentes del driver
+ft9201_sources = [
+    'drivers/ft9201.c',
+]
+
+# Compilar como módulo compartido
+shared_library('ft9201',
+    ft9201_sources,
+    dependencies: [libfprint_dep],
+    install: true,
+    install_dir: get_option('libdir') / 'libfprint-2.0' / 'drivers'
+)
+
+# Instalar archivo de configuración
+install_data('ft9201.conf',
+    install_dir: get_option('sysconfdir') / 'libfprint-2.0'
+)

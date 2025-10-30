@@ -1,0 +1,8 @@
+/build/
+/libfprint/
+*.o
+*.so
+*.a
+__pycache__/
+*.swp
+*.swo
