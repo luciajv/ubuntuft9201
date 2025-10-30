@@ -1,0 +1,10 @@
+#pragma once
+
+#include "fpi-device.h"
+
+G_BEGIN_DECLS
+
+#define FP_TYPE_DEVICE_FT9201 (fpi_device_ft9201_get_type())
+G_DECLARE_FINAL_TYPE(FpDeviceFt9201, fpi_device_ft9201, FP, DEVICE_FT9201, FpDevice)
+
+G_END_DECLS
