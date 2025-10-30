@@ -31,7 +31,7 @@ fpi_device_ft9201_class_init(FpDeviceFt9201Class *klass)
   device_class->scan_type = FP_SCAN_TYPE_PRESS;
   device_class->nr_enroll_stages = 10;
 
-  /* FALTA */
+  /* FALTAN */
   /* device_class->open = ft9201_open; */
   /* device_class->close = ft9201_close; */
   /* device_class->enroll = ft9201_enroll; */
