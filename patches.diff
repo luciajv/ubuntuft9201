@@ -31,10 +31,10 @@ index 0000000..1234567
 --- /dev/null
 +++ b/libfprint/drivers/ft9201.c
 @@ -0,0 +1,42 @@
-+/*
-+ * Driver para FocalTech FT9201 Fingerprint Sensor
-+ * Dispositivo: 2808:9338
-+ */
++
++ 
++ 
++ 
 +
 +#include "fpi-device.h"
 +#include "fpi-ssm.h"
@@ -53,7 +53,7 @@ index 0000000..1234567
 +
 +static void fpi_device_ft9201_init(FpDeviceFt9201 *self)
 +{
-+    /* Inicialización del dispositivo */
++    
 +}
 +
 +static void fpi_device_ft9201_class_init(FpDeviceFt9201Class *klass)
@@ -67,7 +67,7 @@ index 0000000..1234567
 +    device_class->scan_type = FP_SCAN_TYPE_PRESS;
 +    device_class->nr_enroll_stages = 10;
 +    
-+    /* Funciones a implementar */
++    /* a implementar */
 +    // device_class->open = ft9201_open;
 +    // device_class->close = ft9201_close;
 +    // device_class->enroll = ft9201_enroll;
