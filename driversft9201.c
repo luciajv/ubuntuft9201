@@ -12,7 +12,6 @@ static const FpIdEntry id_table[] = {
 };
 
 static void fpi_device_ft9201_init(FpDeviceFt9201 *self) {
-    /* Inicialización del dispositivo */
 }
 
 static void fpi_device_ft9201_class_init(FpDeviceFt9201Class *klass) {
@@ -25,7 +24,7 @@ static void fpi_device_ft9201_class_init(FpDeviceFt9201Class *klass) {
     device_class->scan_type = FP_SCAN_TYPE_PRESS;
     device_class->nr_enroll_stages = 10;
     
-    /* Nota: Estas funciones necesitarán ser implementadas */
+    /* FALTAN */
     // device_class->open = ft9201_open;
     // device_class->close = ft9201_close;
     // device_class->enroll = ft9201_enroll;
@@ -33,7 +32,6 @@ static void fpi_device_ft9201_class_init(FpDeviceFt9201Class *klass) {
     // device_class->identify = ft9201_identify;
 }
 
-/* Función de inicialización del driver */
 void ft9201_driver_init(void) {
     fp_dbg("Inicializando driver FT9201");
 }
