@@ -32,11 +32,7 @@ index 0000000..a1b2c3d4
 +++ b/libfprint/drivers/ft9201.c
 @@ -0,0 +1,42 @@
 +
-+ 
-+ 
-+ 
-+
-+#include "fpi-device.h"
++#include "ft9201.h"
 +#include "fpi-ssm.h"
 +#include "fpi-usb-transfer.h"
 +
@@ -55,7 +51,6 @@ index 0000000..a1b2c3d4
 +static void
 +fpi_device_ft9201_init (FpDeviceFt9201 *self)
 +{
-+ 
 +}
 +
 +static void
@@ -70,6 +65,25 @@ index 0000000..a1b2c3d4
 +  device_class->scan_type = FP_SCAN_TYPE_PRESS;
 +  device_class->nr_enroll_stages = 10;
 +
-+  
++  /* falta */
 +  /* device_class->open = ft9201_open; */
 +}
+diff --git a/libfprint/drivers/ft9201.h b/libfprint/drivers/ft9201.h
+new file mode 100644
+index 0000000..e3f4a5b
+--- /dev/null
++++ b/libfprint/drivers/ft9201.h
+@@ -0,0 +1,13 @@
++#pragma once
++
++#include "fpi-device.h"
++
++G_BEGIN_DECLS
++
++#define FP_TYPE_DEVICE_FT9201 (fpi_device_ft9201_get_type ())
++G_DECLARE_FINAL_TYPE (FpDeviceFt9201, fpi_device_ft9201, FP, DEVICE_FT9201, FpDevice)
++
++G_END_DECLS
++```
++
++
