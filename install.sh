@@ -18,13 +18,13 @@ if [ ! -d "libfprint" ]; then
 fi
 
 cd libfprint
-echo "Aplicando parche del driver FT9201"
+echo "aplicando parche del driver FT9201"
 git apply ../patches/add-ft9201-driver.patch
-echo "Copiando archivos del driver"
+echo "copiando archivos del driver"
 cp ../drivers/ft9201.c drivers/
 cp ../drivers/ft9201.h drivers/
 
-echo "Compilando libfprint con soporte FT9201"
+echo "compilando libfprint con soporte FT9201"
 meson setup build
 ninja -C build
 
